@@ -123,6 +123,21 @@ def editar_aluno(df, aluno):
     print("\nDados atualizados com sucesso!")
     return df
 
+#  Remover aluno
+def remover_aluno(df, aluno):
+    print("\n=== REMOVER ALUNO ===")
+    confirma = input(f"Deseja realmente remover o aluno {aluno['nome']}? (s/n): ")
+
+    if confirma.lower() == "s":
+        df = df[df["matricula"] != aluno["matricula"]]
+        salvar_dados(df)
+        print("\nAluno removido com sucesso!")
+    else:
+        print("Remoção cancelada.")
+
+    return df
+
+
 #  Main
 def menu():
     df = carregar_dados()
