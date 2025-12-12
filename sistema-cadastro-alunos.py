@@ -1,3 +1,18 @@
+import pandas as pd
+import os
+
+ARQUIVO = "alunos.csv"
+
+# Criar arquivo csv
+def carregar_dados():
+    if os.path.exists(ARQUIVO):
+        return pd.read_csv(ARQUIVO)
+    else:
+        return pd.DataFrame(columns=[
+            "matricula", "nome", "rua", "numero", "bairro",
+            "cidade", "uf", "telefone", "email"
+        ])
+
 #  Main
 def menu():
     df = carregar_dados()
