@@ -13,6 +13,18 @@ def carregar_dados():
             "cidade", "uf", "telefone", "email"
         ])
 
+#  Salvar no csv
+def salvar_dados(df):
+    df.to_csv(ARQUIVO, index=False)
+
+# Gerar matrícula para o aluno
+def gerar_matricula(df):
+    if df.empty:
+        return 1
+    else:
+        return df["matricula"].max() + 1
+
+
 #  Main
 def menu():
     df = carregar_dados()
